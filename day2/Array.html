@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function fn() {
+        return 12;
+        return 13;
+        // reutrn 有两个作用，一个打断函数的执行；
+        // 另一个是 返回结果给外界。不写return时默认返回undefined
+        console.log(111);
+    }
+    var f = fn();
+    var ary = [1, 2, 3, 4];
+    // ary[4] = 5;
+    // var n = ary.push(5,{},{},{},fn);//给数组的末尾添加项
+    // //返回值时改编后的数组长度
+    // console.log(n,ary);
+
+    // var item = ary.pop()//删除数组的最后一项
+
+    var n = ary.unshift(100, 9999, 9090); //给数组的首位增加项
+    // ary.shift()//删除数组的首位
+
+    ary = [65, 34, 688, 456, 8908];
+    var ary3 = ary.sort(function (a, b) {
+        return a - b;
+        //返回值a - b  就是一个升序
+        // 返回 b-a    就是一个降序
+    }) //sort 的返回结果是排好序之后的数组
+    console.log(ary3 === ary)
+
+
+    //reverse
+    //ary.reverse() //数组的反转；返回结果跟原数组是一个地址
+
+    //forEach
+    ary = [10, 20, 30, 40];
+    ary.forEach(function (item, index) {
+        // 用来循环数组的
+        // item 是循环的数组的每一项
+        // index 是循环的每一项的索引
+    });
+
+    //filter
+    //ary = [10,20,30,40];
+    var ary2 = ary.filter(function (item, index) {
+        return item > 20 ;
+    });
+
+    
+</script>

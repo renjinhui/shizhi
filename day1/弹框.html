@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalbale=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+</body>
+
+</html>
+<script>
+    var oBtns = document.getElementsByTagName('button');
+    console.log(oBtns);
+    // oBtns[0].onclick = function () {
+    //     console.log(this.innerHTML);
+    //     alert(1)
+    // }
+    // oBtns[1].onclick = function () {
+    //     alert(2)
+    // }
+    // oBtns[2].onclick = function () {
+    //     alert(3)
+    // }
+    // oBtns[3].onclick = function () {
+    //     alert(4)
+    // }
+
+    //事件的循环绑定
+    for (let i = 0; i < oBtns.length; i++) {
+        oBtns[i].onclick = function () {
+            // alert(this.innerHTML);
+            alert(i)
+        }
+        console.log(i);
+    }
+</script>
