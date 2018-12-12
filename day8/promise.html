@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let p = new Promise(function (resolve, reject) {
+        //resolve 是用来处理成功的回调
+        //reject 是用来处理失败的回调
+        let t = Math.random();
+        if (t > 0.5) {
+            resolve('success')
+        } else {
+            reject('fail')
+        }
+    })
+    p.then(function (d) {
+        //对应上边的 resolve
+        console.log('this is a resolve fn');
+        console.log(d)
+    }, function (data) {
+        //对应上边的 reject
+        console.log('this is a reject fn');
+        console.log(data)
+    })
+</script>

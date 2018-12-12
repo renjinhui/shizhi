@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+        扩展运算符  ...
+        let ary = [1,2,3]
+        let a = [...ary];
+        let obj = {name:'zf'}
+        let obj2 = {...obj};
+
+        剩余运算符  ...
+        function sum (...ary){console.log(ary)}
+        sum(1,2) // [1,2]
+        su(1,2,3) // [1,2,3]
+
+        [m,n] 之间的随机整数
+        Math.round(Math.random()*(n-m)+m)
+     */
+     let ary = [];
+     for(let i=0;i<4;i++){
+        let t = Math.round(Math.random()*61);
+        // ary[i] = t;
+        // ary.push(t); 
+        ary.unshift(t);
+     }
+     // 箭头函数 arguments   this
+     let fn = (a,b)=>{
+        return a + b;
+     }
+     let fn2 = (a,b)=>a+b;
+
+     /* 
+        this 
+        事件绑定函数中的this  指向 绑定事件的那个元素 
+        其他 看点；点前边是谁this 就是谁；没点 一般都是window
+      */
+
+    let arr = [34,56,345,56,23,65]; 
+    arr.sort(function (a,b) {
+        return a - b
+    });
+    arr.sort((a,b)=>{return a - b});
+    arr.sort((a,b)=>a-b);
+    // filter,forEach
+
+    //call  apply  bind
+    // fn.call(obj,1,2,3);
+    // let fn2 = fn.bind(obj,1,2,3);
+    // fn.apply(obj,数组或者类数组)；
+
+    let obj2 = {name:'zf'};
+    let fn = function (...ary) {
+        console.log(this,ary)
+    }
+    // fn.call(obj2,1,2,3);
+    // fn.apply(obj2,[1,2,3]);
+    let fn2 = fn.bind(obj2,1,2,3);
+    fn2(4,5,6);
+
+
+</script>

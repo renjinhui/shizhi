@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="sjz">
+        美丽的石家庄
+    </div>
+</body>
+
+</html>
+<script>
+    Math.floor(3.9); // 向下取整  3
+    Math.ceil(3.1) // 向上取整    4
+    Math.round(3.1) // 四舍五入   3
+    Math.round(3.9) //          4
+    Math.abs(-2) //取绝对值      2
+    Math.abs(2) //              2
+    Math.random() // [0-1) 0到1之间的随机小数，包含0 不包含1
+    Math.round(Math.random() * 10 + 1);
+    // Math.round(Math.random()*(n-m)+m);// n-m之间的随机整数
+
+    Math.max(1, 2, 3, 4) // 求一组数中的最大值 4
+    Math.min(1, 2, 3, 4) // 求一组数中的最小值 1 
+
+    let ary = [23, 35, 233, 245, 72];
+    Math.max(...ary);
+
+
+    // 箭头函数
+    let fn = function () {
+
+    }
+    let fn2 = (a, b) => {
+        //箭头函数没有 arguments;他是把 arguments 当作普通变量处理
+        //箭头函数也没有this; 他是从上级作用域中查找相应的this;
+
+        // console.log(arguments);
+        console.log(this);
+        return a + b;
+    }
+
+    // 普通函数中的this指向问题
+    // 1、若是 事件绑定 中的函数中的this 是指向 绑定的元素
+    // 2、查看函数之前有没有点 
+    //    有点的话 点前边是谁 this就是谁；
+    //    没点就是window
+    let oDiv = document.getElementById('sjz');
+    sjz.onclick = function () {
+        console.log(this);
+    };
+
+    let obj = {
+        fn: function () {
+            //arguments  类数组
+            console.log(this, arguments)
+        }
+    };
+    let fn2 = obj.fn;
+    console.log(fn2 === obj.fn)
+    obj.fn()
+    fn2.call(obj, 1, 2, 4, 564, 7, 78);
+    fn2.apply(obj,[1,2,3,4,5]);
+    let fn3 = fn2.bind(obj,1,2,3);
+    fn3();
+
+
+    // fn.call(obj,1,2,3)
+    // 把  fn  中的this 换成 obj;
+    // 并把 后边的这些个参数传给fn
+
+    // fn.apply(obj,[1,2,3,4])
+    // 把 fn 中的this 换成 obj
+    // 第二个参数是个 数组或者类数组
+
+</script>

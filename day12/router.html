@@ -21,7 +21,10 @@
 <script src="./node_modules/vue-router/dist/vue-router.js"></script>
 <script>
     let home = {
-        template:'<h1>home</h1>'
+        template:'<h1>home <router-view></router-view></h1>'
+    }
+    let aaa = {
+        template:'<h2>啊啊啊</h2>'
     }
     let list= {
         template:"<h1>list</h1>"
@@ -29,7 +32,13 @@
     let router = new VueRouter({
         routes: [{
                 path: '/home',
-                component: home
+                component: home,
+                children:[
+                    {
+                        path:'/home/ddd',
+                        component:aaa
+                    }
+                ]
             },
             {
                 path: '/list',

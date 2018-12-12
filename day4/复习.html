@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /* 
+     push(12,345)
+     pop()
+
+     unshift('2323',2)
+     shift()
+
+     reverse()
+     sort(function(a,b){return a - b}) //升序
+     sort(function(a,b){return b - a}) //降序
+
+     filter(function(item,index){})
+    */
+    var ary = [1, 2, 3, 4, 5, 6];
+    var ary2 = ary.filter(function (item, index) {
+        return item > 2;
+        // return 的值 是true時；會把當前的item放入新的數組；
+    });
+    var bb = ary.map(function (item, index) {
+
+    })
+    var aa = ary.forEach(function (item, index) {
+        return 123;
+    });
+    cosole.log(aa);
+
+    ary.join('+') //讓數組中的每一項已指定字符拼接 ；返回結果是個字符串
+    var str = '1234567';
+    str.split(''); //吧字符串已指定字符拆分成數組；
+
+    var ary = [23, 10, 20, 30]; //數組求和；
+    var t = 0;
+    //    for(var i=0;i<ary.length;i++){
+    //        t+=ary[i];
+    //    }
+    ary.forEach(function (item) {
+        t += item;
+    })
+    console.log(t);
+
+    eval('1+2+3') //把字符串转化成 JS表达式 然后进行运算
+
+    //查出字符串中重复次数最多的那个字符；并求出重复的次数
+    var str = 'qqwewrertetetetet';
+    var obj = {};
+    /* obj.q = 1; obj.q++
+    obj.w=1
+    obj.e = 1;obj.w++ */
+    for (var i = 0; i < str.length; i++) {
+        //obj.str[i]
+        if (obj[str[i]]) {
+            //若 对象中存在该项；
+            //则证明之前已经给该项赋过值了；
+            // 直接进行 ++ 的操作即可
+            obj[str[i]]++
+        } else {
+            obj[str[i]] = 1;
+        }
+        /* obj[str[i]] = 1;
+        obj[str[i]]++ */
+    }
+
+    var max = 0;// 假设的最大次数是 0 次；
+    var maxStr = '';
+    for(var k in obj){
+        if(obj[k] > max){
+            max = obj[k];
+            maxStr = k;
+        }
+    }
+    console.log(maxStr,max);
+</script>

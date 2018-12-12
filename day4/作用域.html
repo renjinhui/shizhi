@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!-- 
+    变量提升机制
+    在所有的代码执行之前；浏览器会把 
+    带有 var 关键字的 变量先提前声明一次 ；这里是只声明 不定义
+    带有 function 关键字的  既声明又定义；
+ -->
+<script>
+    //  sum();
+    //  fn();
+    // console.log(sum,fn)
+    function sum() {
+        console.log('this is a sum ');
+    }
+    fn()
+    var fn = function () {
+        console.log('this is a fn');
+    }
+
+    function fn() {
+        console.log(2222)
+    }
+    fn()
+    /* 
+    var 和 let  的简单区别 
+    1、let 声明的变量不会挂在到 window下
+    2、let 声明的变量没有变量提升
+    */
+
+    /* 
+        作用域：
+        全局作用域  ---》 全局变量
+        私有作用域  ---》 私有变量
+    */
+
+    //函数执行的时候才会形成私有作用域
+    /* fn2();
+    var a = 10;
+    fn2();
+    function fn2() {
+        console.log(a)
+        var a = 12
+    } */
+    fn2();
+    console.log(a);
+    var a = 10;
+    fn2();
+    function fn2() {
+        console.log(a)
+        a = 12
+    }
+</script>

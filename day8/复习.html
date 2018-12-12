@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function fn(...ary) {
+        
+    }
+    let f = (a,b)=>a+b
+    setTimeout;
+    setInterval(()=>{},1000);
+    clearTimeout;
+    clearInterval;
+    new Date();
+    call,apply,bind;
+    fn.call(obj,1,2,3);
+    fn.apply(obj,[1,2,3]);
+    fn.bind(obj,1,2,3);
+
+    function Person() {
+        this.a= 12;
+        this.b=13;
+    };
+    let per = new Person();
+    //per 是 Person的一个实例
+
+    class A{
+        constructor(){
+            this.a = 12;
+            this. b = 13;
+            //私有属性
+        }
+        sum(){
+
+        }
+    }
+
+    class B extends A{
+        constructor(){
+            super();
+        }
+        sum2(){
+
+        }
+    }
+
+    let b = new B;
+    b.sum();
+
+    oDiv.onclick = function(e){
+        e.target;//点击的元素
+        e.preventDefault();
+        e.stopPropagation();
+        e.clientX;// 距离可视窗口
+        e.pageX;// 距离body
+    }
+    touchstart
+    touchmove
+    touchend
+
+    /* 
+        ajax;
+    */
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','./data.json',true);//true 可以省略 默认true
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState==4 && xhr.status == 200){
+            console.log(xhr.responseText)
+        }
+    };
+    xhr.send();
+
+</script>

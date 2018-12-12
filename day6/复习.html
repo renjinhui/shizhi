@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 作用域链
+    // 块级作用域 let const 
+    // 闭包
+    // 数组的解构赋值
+    let [a1,a2] = [1,2,3];
+    let x= 12;
+    let y= 13;
+    [x,y] = [y,x];
+
+    // 对象的解构赋值
+    let {a1,a2,a3} = {a1:12,a2:13};
+
+    //数组的解构赋值
+    let ary1 = [1,2,3];
+    let ary2 = [...ary1];
+    let ary3 = ary1.concat([1,2,3,4]);
+    //对象的解构赋值
+    let obj = {a1:12,a2:13};
+    let obj2 = {...obj,a3:14};
+
+
+    //  剩余运算符
+    function sum(a1,...ary) {
+        console.log(a1,ary)
+    }
+    sum(1,2,3,4,5)
+
+    function sum2(...ary) {
+        // 通过 ... 把传进来的实参 都放到ary这个数组中
+        // 在用数组的 join 把数组的每一项用 + 拼接成字符串
+        // 再用 eval 把拼接好的字符串 转成 表达式计算
+        return eval(ary.join('+'));
+    }
+
+    
+</script>

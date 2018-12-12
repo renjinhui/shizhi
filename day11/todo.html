@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='str' @keyup.13='fn($event)'>
+        <ul>
+            <li v-for='(item,i) in ary'>
+                <span>{{item}}</span>
+                <button @click.stop='del(i)'>删除</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            str:'',
+            ary:[]
+        },
+        methods:{
+            fn(e){
+                console.log(e)
+                this.ary.push(this.str);
+                this.str = '';
+            },
+            del(n){
+                this.ary = this.ary.filter((item,index)=>{
+                    return index != n;
+                })
+            }
+        }
+    })
+</script>

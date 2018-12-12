@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>停止</button>
+    <div id="timeBox"></div>
+</body>
+</html>
+<script>
+    /* 
+        setTimeout(回调函数,等待时间)
+        经过等待时间之后  执行 回调函数
+        这个等待时间是以毫秒为单位的；
+    */
+    let timer = setTimeout(() => {
+        console.log(1111)
+    }, 1000);
+    clearTimeout(timer);//清除定时器
+
+    // setInterval 于 setTimeout 的区别
+    // setInterval 是不停的执行
+    let timer2 = setInterval(()=>{
+        console.log(2222)
+    },1000);
+    btn.onclick = function () {
+        clearInterval(timer2);
+    };
+
+
+    setTimeout(() => {
+        console.log(0);
+    }, 0);
+    console.log(1);
+    // 异步代码  
+    // 只有在同步代码执行完毕之后才会执行
+
+    /* 
+        Date
+        let now = new Date();// 本机时间
+
+        now.getTime(); 
+        距离 1970 1 1 00：00：00 的毫秒数
+    
+    */
+
+    // 倒计时 思路  
+    // 要知道目标时间  和当前时间
+    // 把两者的时间差 转成 时分秒
+    // 一秒转一次
+
+    //目标时间
+    let target = new Date('2018-10-27 11:19:00').getTime()
+
+    // 下一步  获取当前时间 并求出两者时间差
+    // 这一步 要一秒执行一次
+    let timer11 = setInterval(()=>{
+        let now = new Date().getTime();
+        let time = target - now;
+        if(time <= 0){
+            //到点儿之后 清除定时器
+            clearInterval(timer11);
+            return;
+        }
+        // 先把 time中的整数个小时 摘出来
+        // 再从剩余的时间中把整数个分钟 摘出来
+        // 再从剩余的时间中把整数个秒 摘出来即可
+       
+        // 1小时 等于 3600*1000 = 3600000 毫秒
+        // 这是time中包含的整数个小时
+        let h = Math.floor(time/3600000);
+
+        // 剩余时间
+        time = time - h*3600000;
+        let m = Math.floor(time/60000)
+
+        time = time - m*60000;
+        let s = Math.floor(time/1000);
+        
+        /* if(h < 10){
+            h = '0'+h;
+        }
+        if(m < 10){
+            m = '0' + m
+        }
+        if(s < 10){
+            s = '0' + s;
+        } */
+
+        let str = `距离下课还有${h<10 ? '0'+h : h}时${m}分${s}秒`;
+        let str2 = '距离下课还有'+h+'时'+m+'分'+s+'秒';
+        // console.log(h,m,s,str);
+        timeBox.innerHTML = str;
+
+        //三元运算
+        // 条件 ? 条件成立的执行 : 条件不成立的执行 
+    },1000)
+</script>
